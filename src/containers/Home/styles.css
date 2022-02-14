@@ -1,0 +1,14 @@
+:root{
+    --main-color: #934;
+
+}
+
+.Home{
+    padding: 25px;
+}
+
+.wrapper{
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
