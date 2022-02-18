@@ -3,17 +3,21 @@ import PokemonCard from './PokemonCard';
 import { Grid } from "semantic-ui-react";
 import './styles.css';
 
-const PokemonList = () => {
-    const pokemons = Array(20).fill('');
-
+const PokemonList = ({pokemons}) => {
+    
+    
 
     return (
-        <Grid className='PokemonList'>
-            {pokemons.map((pokemon, index) => (
-                <PokemonCard key={index} />
-            ))}
-        </Grid>
+      <Grid className="PokemonList">
+        {pokemons.map((pokemon, index) => (
+          <PokemonCard key={index} pokemon={pokemon} />
+        ))}
+      </Grid>
     );
-}
+};
+
+PokemonList.defaultProps = {
+  pokemons: [],
+};
 
 export default PokemonList;

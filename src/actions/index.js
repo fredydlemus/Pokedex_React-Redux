@@ -1,6 +1,6 @@
 import { SET_POKEMON } from "./type";
 
-export const setPokemon = (payload) => ({
+export const setPokemons = (payload) => ({
     type: SET_POKEMON,
     payload,
 });
