@@ -4,24 +4,28 @@ import PokemonList from '../../components/PokemonList';
 import SearchBar from '../../components/Searcher';
 import './styles.css'
 import { getPokemons } from '../../api/getPokemons';
-import { setPokemons } from "../../actions/index";
+import { setError, setPokemons } from "../../actions/index";
 
 
 const Home = () => {
     const dispatch = useDispatch();
-    const list = useSelector(state => state.list);
+    const pokemons = useSelector(state => state.list);
     
 
   useEffect(() => {
-    getPokemons().then((res) => {
+    getPokemons()
+      .then((res) => {
         dispatch(setPokemons(res.results));
-    });
-  });
+      })
+      .catch((error) => {
+        dispatch(setError({ message: "Error", error }));
+      });
+  }, []);
 
   return (
     <div className="Home">
       <SearchBar />
-      <PokemonList pokemons={list} />
+      <PokemonList pokemons={pokemons} />
     </div>
   );
 };
