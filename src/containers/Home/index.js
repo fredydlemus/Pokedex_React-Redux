@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PokemonList from '../../components/PokemonList';
 import SearchBar from '../../components/Searcher';
-import './styles.css'
-import { getPokemons } from '../../api/getPokemons';
-import { setError, setPokemons } from "../../actions/index";
+import "./styles.css";
+
+import { getPokemonWithDetails} from "../../actions/index";
+
 
 
 const Home = () => {
@@ -13,13 +14,7 @@ const Home = () => {
     
 
   useEffect(() => {
-    getPokemons()
-      .then((res) => {
-        dispatch(setPokemons(res.results));
-      })
-      .catch((error) => {
-        dispatch(setError({ message: "Error", error }));
-      });
+    dispatch(getPokemonWithDetails());
   }, []);
 
   return (
