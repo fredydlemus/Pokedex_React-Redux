@@ -1,5 +1,5 @@
 
-import { SET_POKEMON, SET_ERROR, CLEAR_ERROR, FETCH_POKEMONS } from "./type";
+import { SET_POKEMON, SET_FAVORITE, SET_ERROR, CLEAR_ERROR, FETCH_POKEMONS, TOGGLE_LOADING } from "./type";
 
 export const setPokemons = (payload) => ({
   type: SET_POKEMON,
@@ -18,4 +18,13 @@ export const clearError = (payload) => ({
 
 export const fetchPokemons = () => ({
   type: FETCH_POKEMONS
+})
+
+export const toggleLoading = () => ({
+  type: TOGGLE_LOADING,
+})
+
+export const setFavorite = (payload) => ({
+  type: SET_FAVORITE,
+  payload,
 })

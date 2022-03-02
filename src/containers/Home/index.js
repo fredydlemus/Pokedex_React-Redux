@@ -5,11 +5,12 @@ import SearchBar from '../../components/Searcher';
 import './styles.css'
 
 import { fetchPokemons, getPokemonsWithDetails } from "../../actions/index";
+import Loader from '../../components/Loader';
 
 
 const Home = () => {
   const dispatch = useDispatch();
-  const pokemons = useSelector(state => state.list);
+  const { list, loading } = useSelector(state => state);
 
 
   useEffect(() => {
@@ -19,7 +20,8 @@ const Home = () => {
   return (
     <div className="Home">
       <SearchBar />
-      <PokemonList pokemons={pokemons} />
+      {loading && <Loader />}
+      <PokemonList pokemons={list} />
     </div>
   );
 };
