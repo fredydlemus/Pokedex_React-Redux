@@ -2,14 +2,14 @@ import React from 'react';
 import { Grid, Icon, Image, Label } from 'semantic-ui-react';
 import { MAIN_COLOR, FAV_COLOR, DEFAULT_COLOR } from '../../utils/constants';
 import { useDispatch } from 'react-redux';
-import { setFavorite } from '../../actions/index';
+import { setFavorite } from '../../slices/pokemon';
 
 const PokemonCard = ({ pokemon }) => {
 
     const dispatch = useDispatch();
 
     const handleFavorite = () => {
-        dispatch(setFavorite({ pokemonId: pokemon.id }));
+        dispatch(setFavorite({ id: pokemon.id }));
     }
 
     const color = pokemon.isFavorite ? FAV_COLOR : DEFAULT_COLOR;
@@ -22,8 +22,8 @@ const PokemonCard = ({ pokemon }) => {
                 </button>
                 <Image centered src={pokemon.sprites.front_default} alt='Pokemon Front' />
                 <p className='Pokemon-title'>{pokemon.name}</p>
-                {pokemon.types.map((type) => (
-                    <Label color={MAIN_COLOR}>{type.type.name}</Label>
+                {pokemon.types.map((type, index) => (
+                    <Label color={MAIN_COLOR} key={index} >{type.type.name}</Label>
                 ))}
             </div>
         </Grid.Column>

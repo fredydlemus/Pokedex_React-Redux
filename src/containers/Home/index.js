@@ -4,13 +4,14 @@ import PokemonList from '../../components/PokemonList';
 import SearchBar from '../../components/Searcher';
 import './styles.css'
 
-import { fetchPokemons, getPokemonsWithDetails } from "../../actions/index";
+import { fetchPokemons } from "../../slices/pokemon";
 import Loader from '../../components/Loader';
 
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { list, loading } = useSelector(state => state);
+  const list = useSelector(state => state.pokemon.list);
+  const loading = useSelector(state => state.ui.loading)
 
 
   useEffect(() => {
