@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Menu from '../Menu';
 import './styles.css';
-import {clearError} from '../../actions/index';
+// import {clearError} from '../../actions/index';
 import { Message } from 'semantic-ui-react';
 
 const Layout = ({ children }) => {
@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
     const dispatch = useDispatch();
 
     const handleDismiss = () =>{
-        dispatch(clearError());
+        // dispatch(clearError());
     }
 
     return (

@@ -3,20 +3,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import PokemonList from '../../components/PokemonList';
 import SearchBar from '../../components/Searcher';
 import "./styles.css";
-
-import { getPokemonWithDetails} from "../../actions/index";
+import { fetchPokemon } from '../../features/pokemonSlice';
 
 
 
 const Home = () => {
     const dispatch = useDispatch();
-    const pokemons = useSelector(state => state.list);
+    const pokemons = useSelector(state => state.pokemon.list);
     
 
   useEffect(() => {
-    dispatch(getPokemonWithDetails());
+    dispatch(fetchPokemon());
   }, []);
 
+  console.log('pokemons',pokemons);
   return (
     <div className="Home">
       <SearchBar />
