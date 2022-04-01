@@ -16,7 +16,7 @@ const Home = () => {
     dispatch(fetchPokemon());
   }, []);
 
-  console.log('pokemons',pokemons);
+  
   return (
     <div className="Home">
       <SearchBar />

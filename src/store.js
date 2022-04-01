@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import pokemonReducer from "./features/pokemonSlice";
-import { logActions } from "./middlewares";
+import { logActions, reportError } from "./middlewares";
 
 export const store = configureStore({
   reducer: {
@@ -8,5 +8,5 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false,
-  }).concat(logActions),
+  }).concat(logActions).concat(reportError),
 });
