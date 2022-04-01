@@ -1,0 +1,40 @@
+spinner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0,0,0);
+    opacity: 0.4;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  .spinner {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-top-color: #0b80be;
+    border-left-color: #0b80be;
+  
+    animation: spinner 500ms linear infinite;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 50%;  
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+  }
+  
+  @keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

@@ -12,6 +12,7 @@ export const fetchPokemon = createAsyncThunk(
 
 const initialState = {
     list: [],
+    loading: false,
     error: ''
 }
 
@@ -32,10 +33,19 @@ export const pokemonSlice = createSlice({
     },
     extraReducers: (builder) =>{
         builder.addCase(fetchPokemon.fulfilled, (state, action) =>{
-            console.log(action.payload);
             state.list = action.payload;
+            state.loading = false;
+            state.error = '';
+        });
+        builder.addCase(fetchPokemon.pending, (state) =>{
+            state.loading = true;
+        });
+        builder.addCase(fetchPokemon.rejected, (state, action) =>{
+            state.error = action.error.message;
+            state.loading = false;
         });
     }
+    
 });
 
 export const {setPokemon, setError, clearError} = pokemonSlice.actions;

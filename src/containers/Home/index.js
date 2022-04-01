@@ -1,23 +1,26 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import PokemonList from '../../components/PokemonList';
-import SearchBar from '../../components/Searcher';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import PokemonList from "../../components/PokemonList";
+import SearchBar from "../../components/Searcher";
 import "./styles.css";
-import { fetchPokemon } from '../../features/pokemonSlice';
-
-
+import { fetchPokemon } from "../../features/pokemonSlice";
+import Loader from "../../components/Loader/Loader";
 
 const Home = () => {
-    const dispatch = useDispatch();
-    const pokemons = useSelector(state => state.pokemon.list);
-    
+  const dispatch = useDispatch();
+  const pokemons = useSelector((state) => state.pokemon.list);
+  const loading = useSelector((state) => state.pokemon.loading);
+  const error = useSelector((state) => state.pokemon.error);
 
   useEffect(() => {
     dispatch(fetchPokemon());
   }, []);
 
-  
-  return (
+  return loading ? (
+    <Loader />
+  ) : error !== "" ? (
+    <div>Error...</div>
+  ) : (
     <div className="Home">
       <SearchBar />
       <PokemonList pokemons={pokemons} />
