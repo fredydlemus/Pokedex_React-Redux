@@ -3,11 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@reduxjs/toolkit": "^1.8.1",
-=======
-    "@reduxjs/toolkit": "^1.8.0",
->>>>>>> 0afc624823764ea89d3656938073973be232f57c
     "@semantic-ui-react/css-patch": "^1.0.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
