@@ -13,7 +13,9 @@ const Home = () => {
   const error = useSelector((state) => state.pokemon.error);
 
   useEffect(() => {
-    dispatch(fetchPokemon());
+    if(pokemons.length === 0){
+      dispatch(fetchPokemon());
+    }
   }, []);
 
   return loading ? (

@@ -12,7 +12,7 @@ export const fetchPokemon = createAsyncThunk(
 
 const initialState = {
     list: [],
-    loading: false,
+    loading: true,
     error: ''
 }
 

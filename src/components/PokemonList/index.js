@@ -3,7 +3,7 @@ import PokemonCard from './PokemonCard';
 import { Grid } from "semantic-ui-react";
 import './styles.css';
 
-const PokemonList = ({pokemons}) => {
+const PokemonList = ({pokemons = []}) => {
     
     
 
@@ -14,10 +14,6 @@ const PokemonList = ({pokemons}) => {
         ))}
       </Grid>
     );
-};
-
-PokemonList.defaultProps = {
-  pokemons: [],
 };
 
 export default PokemonList;
