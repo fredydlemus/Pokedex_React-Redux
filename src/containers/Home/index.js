@@ -26,7 +26,7 @@ const Home = () => {
     <div className="Home">
       <SearchBar />
       {loading && <Loader />}
-      <PokemonList pokemons={list} />
+      <PokemonList pokemons={pokemons} />
     </div>
   );
 };
